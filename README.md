@@ -26,8 +26,10 @@ The module does a sanity check to ensure that it is trying to modify the right
 value, but this may fail and write to some unknown place in kernel memory which
 BAD™.
 
+Updated for SteamOS 3.6.0 Preview (kernel 6.5)
+
 # How to build & install
-- Install `base-devel`, `linux-neptune-61-headers` and `linux-neptune-61` with pacman.
+- Install `base-devel`, `linux-neptune-65-headers` and `linux-neptune-65` with pacman.
   - If you don't have enough space to install these packages please install [rwfus](https://github.com/ValShaped/rwfus)
   - If it fails to find the linux-neptune package or make fails run `uname -r` and replace 61 with the last 2 numbers.
 - Run `./install.sh`.
@@ -42,9 +44,9 @@ in the kernel, but this not a great idea. In this version I copy the header
 files for a specific kernel version and store them for each version in source
 control.
 
-Right now I have only added suport for `6.1.52-valve16`. If you want support for,
-as of writing, stable release `5.*.*`, then use version `0.0.1`.
+Right now I have only added suport for `6.5.0-valve5-1-neptune-65-g6efe817cc486`. If a SteamOS update updates the kernel, I will try to update the modules asap.
 
+Install `linux-api-headers`, `glibc`, `base-devel`, `linux-neptune-65-headers` and `linux-neptune-65` with pacman.
 To add support for your kernel version, enter the linux-header-extract directory and run `get.sh`.  Then run `make
 linux-pkg-prepare` followed by `make extract-headers`. You can then use it for
 yourself or submit a PR so others won't need this process.
